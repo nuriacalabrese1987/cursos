@@ -42,4 +42,22 @@ public class AppConfig {
 		
 		return Arrays.asList(linea1, linea2, linea3, linea4);
 	}
+	
+	//para decirle cual queremos que coja d los dos lo inyectamos con @Qualifier en el pojo o podemos usar @Primary en esta clase
+	
+	@Bean("itemsFacturaOficina")
+	public List<ItemFactura> registrarItemsOficina(){
+		
+		Producto producto1 = new Producto ("Notebook", 500);
+		Producto producto2 = new Producto ("Impresora", 660);
+		Producto producto3 = new Producto ("Pantalla", 25);
+		Producto producto4 = new Producto ("Escritorio", 150);
+		
+		ItemFactura linea1 = new ItemFactura(producto1, 5);
+		ItemFactura linea2 = new ItemFactura(producto2, 7);
+		ItemFactura linea3 = new ItemFactura(producto3, 2);
+		ItemFactura linea4 = new ItemFactura(producto4, 4);
+		
+		return Arrays.asList(linea1, linea2, linea3, linea4);
+	}
 }
