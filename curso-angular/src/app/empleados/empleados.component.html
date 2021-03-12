@@ -1,23 +1,31 @@
 <h2>Ejemplo de SWITCH Y STYLE</h2>
 <h3>Colores Switch</h3>
 <ul [ngSwitch]="color">
- <li *ngSwitchCase="'red'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">El color el rojo</li>   <!--lo unico que no ponemos entre comillas es la variable -->
- <li *ngSwitchCase="'green'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">El color el verde</li>
+  <li *ngSwitchCase="'red'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">El color el rojo</li>
+  <!--lo unico que no ponemos entre comillas es la variable -->
+  <li *ngSwitchCase="'green'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">El color el verde</li>
   <li *ngSwitchCase="'blue'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">El color el azul</li>
 </ul>
-<hr/>
+<hr />
 <h2>Ejemplo de TWO WAY DATA-BINDING</h2>
-<input type="text" [(ngModel)]="color_seleccionado"/>
-<pre>
-  Color elegido:  
+<h3>Selector de colores:</h3>
+<button (click)="logColorSeleccionado()">Mostrar Log</button>
+<input type="text" [(ngModel)]="color_seleccionado" />
+<pre  [style.border] = "color_seleccionado == 'red' ? '5px solid black' : '5px solid pink'"
+  [class.fondoazul]="color_seleccionado=='blue'">
+  Color elegido:
   {{color_seleccionado}}
 </pre>
-<div [ngStyle]="{'background':color_seleccionado, 'width':'100px', 'height':'100px', 'float': 'right', 'margin-right': '75%'}">
+<div [ngStyle]="{
+  'background':color_seleccionado,
+  'width':'100px', 'height':'100px',
+  'float': 'right',
+  'margin-right': '75%'}">
 </div>
 <div style="clear:both">
 
 </div>
-<hr/>
+<hr />
 <h2>Ejemplo de IF</h2>
 <h3 style="color:blue;">
   {{titulo}}
@@ -46,7 +54,7 @@
     <li *ngIf="empleado.contratado == false">No esta contratado</li>
   </ul>
 </div>
-<hr/>
+<hr />
 <h2>Ejemplo de FOR</h2>
 <h3>Listado de empleados</h3>
 <ul>
@@ -61,4 +69,4 @@
     </ul>
   </li>
 </ul>
-<hr/>
+<hr />

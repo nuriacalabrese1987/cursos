@@ -35,6 +35,9 @@ export class EmpleadosComponent implements OnInit {
   cambiarExterno(valor: boolean){
     this.trabajador_externo = valor;
   }
+  logColorSeleccionado(){
+    console.log(this.color_seleccionado);
 
+  }
 
 }
